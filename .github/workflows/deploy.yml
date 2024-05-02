@@ -78,14 +78,23 @@ jobs:
             ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY_STAGING }}
             ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY_PRODUCTION }}
 
+      - name: Write mathpass secret to file
+        env:
+          MATHPASS: ${{ secrets.WOLFRAM_ENGINE_MATHPASS }}
+        run: echo "$MATHPASS" >> ./mathpass
+
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
+          target: private
+          dockerfile: Dockerfile
           push: true
           provenance: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          secret-files: |
+            "mathpass=./mathpass"
 
       - name: Get Image Names
         id: image_names
