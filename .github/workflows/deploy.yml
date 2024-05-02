@@ -15,6 +15,7 @@ jobs:
   setup:
     name: Setup
     runs-on: ubuntu-latest
+    if: github.repository != 'lambda-feedback/evaluation-function-boilerplate-wolfram'
     outputs:
       evaluation_function_name: ${{ steps.evaluation_function_name.outputs.name }}
     steps:
