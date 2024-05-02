@@ -24,6 +24,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check Wolfram Licence Key
+        run: |
+          [[ -z "${{ secrets.WOLFRAM_ENGINE_MATHPASS }}" ]] && { echo "Set WOLFRAM_ENGINE_MATHPASS in secrets" ; exit 1; }
+
       - name: Parse config.json
         id: config
         run: |
@@ -39,7 +43,7 @@ jobs:
         id: evaluation_function_name
         run: |
           functionName="${{fromJson(steps.config.outputs.config).EvaluationFunctionName}}"
-          [[ -z "$functionName" ]] && { echo "Add EvaluationFunctionName to config.json" ; exit 1; }
+          [[ -z "$functionName" ]] && { echo "Set EvaluationFunctionName in config.json" ; exit 1; }
           echo "name=$functionName" >> "$GITHUB_OUTPUT"
 
   build:
