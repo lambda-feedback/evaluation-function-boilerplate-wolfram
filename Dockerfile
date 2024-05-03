@@ -7,7 +7,7 @@ COPY ./evaluation_function.wl /app/evaluation_function.wl
 FROM base as final-public
 
 # Start evaluation function HTTP server
-CMD [ "shimmy", "-i", "file", "-c", "wolframscript", "-a", "-f /app/evaluation_function.wl", "serve" ]
+CMD [ "shimmy", "-i", "file", "-c", "wolframscript", "-a", "-f", "-a", "/app/evaluation_function.wl", "serve" ]
 
 # Final layer for private images, which contains the wolfram licence key.
 FROM base as final-private
@@ -17,4 +17,4 @@ RUN --mount=type=secret,id=mathpass \
     cp /run/secrets/mathpass /root/.WolframEngine/Licensing/mathpass
 
 # Start evaluation function AWS Lambda handler
-CMD [ "shimmy", "-i", "file", "-c", "wolframscript", "-a", "-f /app/evaluation_function.wl", "handle" ]
+CMD [ "shimmy", "-i", "file", "-c", "wolframscript", "-a", "-f", "-a", "/app/evaluation_function.wl", "handle" ]
