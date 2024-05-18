@@ -6,6 +6,10 @@ This repository contains the boilerplate code needed to create a containerized e
 
 Wolfram Engine requires a valid license to run. For developing purposes, you can obtain a free Wolfram Engine license. This process is described in the following steps. If you want to read more about licensing, please refer to the [Wolfram Engine Licensing Documentation](https://hub.docker.com/r/wolframresearch/wolframengine).
 
+### Production
+
+### Development
+
 **1. Sign in or create a Wolfram ID.**
 
 Head over to the [Wolfram Account Portal](https://account.wolfram.com/login/create) and sign in or create a new account.
