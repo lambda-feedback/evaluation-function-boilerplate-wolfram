@@ -116,7 +116,7 @@ docker build -t my-wolfram-evaluation-function .
 
 ## Deployment
 
-This section guides you through the deployment process of the evaluation function. If you want to deploy the evaluation function to Lambda Feedback, follow the steps in the [Lambda Feedback](#lambda-feedback) section. Otherwise, you can deploy the evaluation function to other platforms using the [Other Platforms](#other-platforms) section.
+This section guides you through the deployment process of the evaluation function. If you want to deploy the evaluation function to Lambda Feedback, follow the steps in the [Lambda Feedback](#deploy-to-lambda-feedback) section. Otherwise, you can deploy the evaluation function to other platforms using the [Other Platforms](#deploy-to-other-platforms) section.
 
 ### Deploy to Lambda Feedback
 
@@ -202,7 +202,7 @@ If you want to pull changes from the template repository to your repository, fol
 1. Add the template repository as a remote:
 
 ```bash
-git remote add template https://github.com/lambda-feedback/evaluation-function-boilerplate-lean.git
+git remote add template https://github.com/lambda-feedback/evaluation-function-boilerplate-wolfram.git
 ```
 
 2. Fetch changes from all remotes:
