@@ -190,3 +190,31 @@ docker run -it --rm -v $(pwd)/mathpass:/home/wolframengine/.WolframEngine/Licens
 ```
 
 This command assumes that you have a `mathpass` file in the current directory, and the container is started with the `wolframengine` user.
+
+
+
+## FAQ
+
+### Pull Changes from the Template Repository
+
+If you want to pull changes from the template repository to your repository, follow these steps:
+
+1. Add the template repository as a remote:
+
+```bash
+git remote add template https://github.com/lambda-feedback/evaluation-function-boilerplate-lean.git
+```
+
+2. Fetch changes from all remotes:
+
+```bash
+git fetch --all
+```
+
+3. Merge changes from the template repository:
+
+```bash
+git merge template/main --allow-unrelated-histories
+```
+
+> Make sure to resolve any conflicts and keep the changes you want to keep.
