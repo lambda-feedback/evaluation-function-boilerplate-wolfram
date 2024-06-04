@@ -10,3 +10,7 @@ on:
 jobs:
   build:
     uses: lambda-feedback/evaluation-function-workflows/.github/workflows/build.yml@main
+    permissions:
+      contents: read
+      id-token: write
+      packages: write

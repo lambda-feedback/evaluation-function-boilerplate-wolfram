@@ -7,12 +7,15 @@ on:
       - master
   workflow_dispatch:
 
-
 jobs:
   deploy:
     uses: lambda-feedback/evaluation-function-workflows/.github/workflows/deploy.yml@main
     with:
-      template-repository-name: 'lambda-feedback/evaluation-function-boilerplate-wolfram'
+      template-repository-name: "lambda-feedback/evaluation-function-boilerplate-wolfram"
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
     secrets:
       aws-key-id: ${{ secrets.LAMBDA_CONTAINER_PIPELINE_AWS_ID }}
       aws-secret-key: ${{ secrets.LAMBDA_CONTAINER_PIPELINE_AWS_SECRET}}
