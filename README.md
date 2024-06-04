@@ -2,8 +2,6 @@
 
 This repository contains the boilerplate code needed to create a containerized evaluation function written in Wolfram Language.
 
-
-
 ## Quickstart
 
 This chapter helps you to quickly creating a new Wolfram evaluation function using this template repository.
@@ -37,8 +35,6 @@ When deploying to Lambda Feedback, set the evaluation function name in the `conf
 #### 4. Develop the evaluation function
 
 You're ready to start developing your evaluation function. Head over to the [Development](#development) section to learn more.
-
-
 
 ## Usage
 
@@ -82,15 +78,13 @@ To run the evaluation function using `shimmy`, use the following command:
 shimmy -c "wolframscript" -a "-f" -a "evaluation_function.wl" -i file
 ```
 
-
-
 ## Development
 
 ### Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Wolfram Engine](https://www.wolfram.com/engine/)
-- [Wolfram Engine License](#wolfram-engine-license)
+- [Wolfram Engine License](#development-license)
 
 ### Repository Structure
 
@@ -112,7 +106,6 @@ To build the Docker image, run the following command:
 ```bash
 docker build -t my-wolfram-evaluation-function .
 ```
-
 
 ## Deployment
 
@@ -144,17 +137,49 @@ Please refer to the deployment documentation of the platform you want to deploy 
 
 If you need help with the deployment, feel free to reach out to the Lambda Feedback team by creating an issue in the template repository.
 
-
-
 ## Wolfram Engine License
 
 Wolfram Engine requires a valid license to run. For developing purposes, you can obtain a free Wolfram Engine license. This process is described in the following steps. If you want to read more about licensing, please refer to the [Wolfram Engine Licensing Documentation](https://hub.docker.com/r/wolframresearch/wolframengine).
 
-### Production
+### Production License
 
 > TODO: Add instructions for on-demand licenses.
 
-### Development
+**1. Sign in to Wolfram Cloud**
+
+Head over to the [Wolfram Cloud](https://www.wolframcloud.com/) and sign in or create a new Wolfram ID. If you don't have a Wolfram subscription, you can sign up for a free Wolfram Cloud Basic subscription.
+
+**2. Create License Entitlement**
+
+After signing in, open a Wolfram Cloud notebook and evaluate the [`CreateLicenceEntitlement`](https://reference.wolfram.com/language/ref/CreateLicenseEntitlement.html) function.
+
+```text
+In[1]:= entitlement = CreateLicenseEntitlement[]
+
+Out[1]= LicenseEntitlementObject[O-WSTD-DA42-GKX4Z6NR2DSZR, ...]
+```
+
+**3. Obtain the License Key**
+
+Run the following command to obtain the entitlement ID:
+
+```text
+In[2]:= entitlement["EntitlementID"]
+
+Out[2]= O-WSTD-DA42-GKX4Z6NR2DSZR
+```
+
+**4. Use the License Key**
+
+Create an environment variable named `WOLFRAMSCRIPT_ENTITLEMENTID` with the entitlement ID:
+
+```text
+WOLFRAMSCRIPT_ENTITLEMENTID=O-WSTD-DA42-GKX4Z6NR2DSZR
+```
+
+This environment variable activates Wolfram Engine when running the `wolframscript` command.
+
+### Development License
 
 **1. Sign in or create a Wolfram ID.**
 
@@ -190,8 +215,6 @@ docker run -it --rm -v $(pwd)/mathpass:/home/wolframengine/.WolframEngine/Licens
 ```
 
 This command assumes that you have a `mathpass` file in the current directory, and the container is started with the `wolframengine` user.
-
-
 
 ## FAQ
 
