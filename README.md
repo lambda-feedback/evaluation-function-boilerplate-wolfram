@@ -143,8 +143,6 @@ Wolfram Engine requires a valid license to run. For developing purposes, you can
 
 ### Production License
 
-> TODO: Add instructions for on-demand licenses.
-
 **1. Sign in to Wolfram Cloud**
 
 Head over to the [Wolfram Cloud](https://www.wolframcloud.com/) and sign in or create a new Wolfram ID. If you don't have a Wolfram subscription, you can sign up for a free Wolfram Cloud Basic subscription.
