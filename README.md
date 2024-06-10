@@ -4,7 +4,9 @@ This repository contains the boilerplate code needed to create a containerized e
 
 ## Quickstart
 
-This chapter helps you to quickly creating a new Wolfram evaluation function using this template repository.
+This chapter helps you to quickly set up a new Wolfram evaluation function using this template repository.
+
+> After setting up the evaluation function, delete this chapter from the `README.md` file, and add your own documentation.
 
 #### 1. Create a new repository
 
@@ -35,6 +37,10 @@ When deploying to Lambda Feedback, set the evaluation function name in the `conf
 #### 4. Develop the evaluation function
 
 You're ready to start developing your evaluation function. Head over to the [Development](#development) section to learn more.
+
+#### 5. Delete this chapter
+
+Don't forget to delete the Quickstart chapter from the `README.md` file after you've completed these steps.
 
 ## Usage
 
