@@ -53,10 +53,10 @@ You can run the evaluation function either using [the pre-built Docker image](#r
 
 ### Run the Docker Image
 
-The pre-built Docker image comes with [`shimmy`](https://github.com/lambda-feedback/shimmy) installed.
+The pre-built Docker image comes with [Shimmy](https://github.com/lambda-feedback/shimmy) installed.
 
 > [!TIP]
-> Shimmy is a small application that listens for incoming HTTP requests, validates the incoming data and forwards it to the underlying evaluation function. Learn more about shimmy in the [Documentation](https://github.com/lambda-feedback/shimmy).
+> Shimmy is a small application that listens for incoming HTTP requests, validates the incoming data and forwards it to the underlying evaluation function. Learn more about Shimmy in the [Documentation](https://github.com/lambda-feedback/shimmy).
 
 The pre-built Docker image is available on the GitHub Container Registry. You can run the image using the following command:
 
@@ -66,7 +66,7 @@ docker run -p 8080:8080 ghcr.io/lambda-feedback/evaluation-function-boilerplate-
 
 ### Run the Script
 
-You can choose between running the Wolfram evaluation function itself, ore using shimmy to run the function.
+You can choose between running the Wolfram evaluation function itself, ore using Shimmy to run the function.
 
 **Raw Mode**
 
@@ -80,9 +80,9 @@ This will run the evaluation function using the input data from `request.json` a
 
 **Shimmy**
 
-To have a more user-friendly experience, you can use [`shimmy`](https://github.com/lambda-feedback/shimmy) to run the evaluation function.
+To have a more user-friendly experience, you can use [Shimmy](https://github.com/lambda-feedback/shimmy) to run the evaluation function.
 
-To run the evaluation function using `shimmy`, use the following command:
+To run the evaluation function using Shimmy, use the following command:
 
 ```bash
 shimmy -c "wolframscript" -a "-f" -a "evaluation_function.wl" -i file
@@ -110,7 +110,7 @@ config.json            # evaluation function deployment configuration file
 
 ### Development Workflow
 
-In its most basic form, the development workflow consists of writing the evaluation function in the `evaluation_function.wl` file and testing it locally. As long as the evaluation function adheres to the Evaluation Function API, a development workflow which incorporates using shimmy is not necessary.
+In its most basic form, the development workflow consists of writing the evaluation function in the `evaluation_function.wl` file and testing it locally. As long as the evaluation function adheres to the Evaluation Function API, a development workflow which incorporates using Shimmy is not necessary.
 
 Testing the evaluation function can be done by running the script using the Wolfram Engine / WolframScript like so:
 
