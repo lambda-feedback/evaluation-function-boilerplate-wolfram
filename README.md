@@ -106,8 +106,20 @@ shimmy -c "wolframscript" -a "-f" -a "evaluation_function.wl" -i file
 evaluation_function.wl # evaluation function source code
 
 config.json            # evaluation function deployment configuration file
-
 ```
+
+### Development Workflow
+
+In its most basic form, the development workflow consists of writing the evaluation function in the `evaluation_function.wl` file and testing it locally. As long as the evaluation function adheres to the Evaluation Function API, a development workflow which incorporates using shimmy is not necessary.
+
+Testing the evaluation function can be done by running the script using the Wolfram Engine / WolframScript like so:
+
+```bash
+wolframscript -f evaluation_function.wl request.json response.json
+```
+
+> [!NOTE]
+> Put the input data in the `request.json` file, and the output will be written to the `response.json` file.
 
 ### Building the Docker Image
 
