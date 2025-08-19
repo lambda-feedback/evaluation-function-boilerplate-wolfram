@@ -77,6 +77,36 @@ wolframscript -f evaluation_function.wl request.json response.json
 ```
 
 This will run the evaluation function using the input data from `request.json` and write the output to `response.json`.
+An example `request.json` is:
+
+```
+{
+  "method": "eval",
+  "params": {
+    "answer":"Sin[p x + q]",
+	"response":"Sin[a x + b]",
+	"params":{
+		"comparisonType":"structure",
+		"named_variables":"{x}",
+		"correct_response_feedback":"Your answer is correct!",
+		"incorrect_response_feedback":"Your answer is incorrect!"
+	}
+  }
+}
+```
+
+Which gives the response:
+
+```
+{
+  "command": "eval",
+  "result": {
+    "is_correct": true,
+    "feedback": "Your answer is correct!",
+    "error": null
+  }
+}
+```
 
 **Shimmy**
 
@@ -126,8 +156,43 @@ wolframscript -f evaluation_function.wl request.json response.json
 To build the Docker image, run the following command:
 
 ```bash
-docker build -t my-wolfram-evaluation-function .
+docker build -t wolfram-evaluation-function .
 ```
+
+### Running the Docker Image
+To run the Docker image, you will need to mount a mathpass licence or pass an entitlement ID. To get these see [Licencing](#Wolfram-Engine-License
+).
+
+To run using mathpass development licence (this assumes that the mathpass file is in your local working directory:
+```bash
+docker run -it --rm -v $(pwd)/mathpass:/home/wolframengine/.WolframEngine/Licensing/mathpass wolfram-evaluation-function
+```
+
+To run using the entitlement key:
+```bash
+docker run -it --rm -env WOLFRAMSCRIPT_ENTITLEMENTID=[YOUR_ENTITLEMENT_ID] wolfram-evaluation-function
+```
+
+### Sending requests to the image 
+We recommend sending requests to your image using [Postman](https://www.postman.com/), an easy to use interface for sending API requests.
+
+If you prefer to use `curl` here is an example request:
+```bash
+curl --location 'http://localhost:8080/wolframEvaluationFunction' \
+--header 'Content-Type: application/json' \
+--header 'command: eval' \
+--data '{
+	"answer":"Sin[p x + q]",
+	"response":"Sin[a x + b]",
+	"params":{
+		"comparisonType":"structure",
+		"named_variables":"{x}",
+		"correct_response_feedback":"Your answer is correct!",
+		"incorrect_response_feedback":"Your answer is incorrect!"
+	}
+}'
+```
+
 
 ## Deployment
 
