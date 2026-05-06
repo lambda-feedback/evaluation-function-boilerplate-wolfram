@@ -2,6 +2,10 @@
 
 This repository contains the boilerplate code needed to create a containerized evaluation function written in Wolfram Language.
 
+## Deployment
+[![Create Release Request](https://img.shields.io/badge/Create%20Release%20Request-blue?style=for-the-badge)](https://github.com/lambda-feedback/{REPO_NAME_HERE}/issues/new?template=release-request.yml)
+To deploy to production, update the README button above to point to the correct repository.
+
 ## Quickstart
 
 This chapter helps you to quickly set up a new Wolfram evaluation function using this template repository.
