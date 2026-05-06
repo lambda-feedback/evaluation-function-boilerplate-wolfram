@@ -130,17 +130,6 @@ shimmy -c "wolframscript" -a "-f" -a "evaluation_function.wl" -i file
 - [Wolfram Engine](https://www.wolfram.com/engine/)
 - [Wolfram Engine License](#development-license)
 
-### Repository Structure
-
-```bash
-.github/workflows/
-    build.yml          # builds the public evaluation function image
-    deploy.yml         # deploys the evaluation function to Lambda Feedback
-
-evaluation_function.wl # evaluation function source code
-
-config.json            # evaluation function deployment configuration file
-```
 
 ### Development Workflow
 
